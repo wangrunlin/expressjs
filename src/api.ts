@@ -20,5 +20,14 @@ api.get('/hello', (req, res) => {
   res.status(200).send({ message: 'hello world' });
 });
 
+api.get('/test', (req, res) => {
+  res.status(200).send({ message: 'test' });
+});
+
+api.get('/:message', (req, res) => {
+  const message = req.message;
+  res.status(200).send({ message });
+})
+
 // Version the api
 app.use('/api/v1', api);
